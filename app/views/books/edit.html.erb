@@ -1,0 +1,9 @@
+<h1>本を編集</h1>
+<%= form_with(model: @book, local: true) do |f| %>
+  <p>タイトル: <%= f.text_field :title %></p>
+  <p>著者: <%= f.text_field :author %></p>
+  <p>ページ数: <%= f.number_field :pages %></p>
+  <%= f.submit "更新" %>
+<% end %>
+
+<%= link_to "戻る", books_path %>

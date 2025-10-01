@@ -1,0 +1,14 @@
+<% if book.errors.any? %>
+  <ul style="color: red;">
+    <% book.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: book, local: true) do |f| %>
+  <p>タイトル: <%= f.text_field :title %></p>
+  <p>著者: <%= f.text_field :author %></p>
+  <p>ページ数: <%= f.number_field :pages %></p>
+  <%= f.submit %>
+<% end %>
