@@ -1,22 +1,31 @@
-<h1>本の一覧</h1>
+<h2>本の一覧</h2>
 
-<table border="1" cellpadding="5">
-  <tr>
-    <th>タイトル</th>
-    <th>著者</th>
-    <th>ページ数</th>
-    <th>操作</th>
-  </tr>
-  <% @books.each do |book| %>
+<table class="book-table">
+  <thead>
     <tr>
-      <td><%= book.title %></td>
-      <td><%= book.author %></td>
-      <td><%= book.pages %></td>
-      <td>
-        <%= link_to "見る", book_path(book) %> |
-        <%= link_to "編集", edit_book_path(book) %> |
-        <%= button_to "削除", book_path(book), method: :delete, data: { confirm: "本当に削除しますか？" }, form: { style: "display:inline" } %>
-      </td>
+      <th>タイトル</th>
+      <th>著者</th>
+      <th>ページ数</th>
+      <th>操作</th>
     </tr>
-  <% end %>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+        <td><%= book.pages %></td>
+        <td class="actions">
+          <%= link_to "見る", book_path(book), class: "btn" %>
+          <%= link_to "編集", edit_book_path(book), class: "btn" %>
+          <%= button_to "削除", book_path(book),
+                method: :delete,
+                data: { confirm: "本当に削除しますか？" },
+                form: { style: "display:inline" },
+                class: "delete-btn" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
