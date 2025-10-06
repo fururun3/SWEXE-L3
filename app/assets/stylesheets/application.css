@@ -1,29 +1,142 @@
+/* ===== 全体共通設定 ===== */
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-}
-
-h1 {
+  font-family: "Hiragino Sans", "Arial", sans-serif;
+  background-color: #f9f9f9;
   color: #333;
+  margin: 0;
 }
 
+/* ===== コンテナ構成（2カラムレイアウト） ===== */
+#container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer footer";
+  grid-template-columns: 220px 1fr;
+  gap: 10px;
+  padding: 10px;
+  min-height: 100vh;
+}
+
+/* ===== 各エリア ===== */
+#header {
+  grid-area: header;
+  background: #4a90e2;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+#sidebar {
+  grid-area: sidebar;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+#content {
+  grid-area: content;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+#footer {
+  grid-area: footer;
+  text-align: center;
+  font-size: 0.9em;
+  background: #f0f0f0;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* ===== タイトル・見出し ===== */
+h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+h2 {
+  border-bottom: 2px solid #4a90e2;
+  padding-bottom: 4px;
+  margin-bottom: 15px;
+}
+
+/* ===== リスト（サイドバーなど） ===== */
 ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 li {
-  margin: 8px 0;
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
+  margin: 6px 0;
+  padding: 6px;
 }
 
-a, button {
-  margin-left: 8px;
+li a {
+  color: #333;
   text-decoration: none;
-  color: blue;
+  display: block;
+  padding: 6px;
+  border-radius: 4px;
 }
 
-a:hover {
-  text-decoration: underline;
+li a:hover {
+  background-color: #e0eaff;
+  color: #1a5dc6;
+}
+
+/* ===== テーブル（一覧表示用） ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f5f5f5;
+}
+
+/* ===== ボタン・リンク ===== */
+a, button {
+  color: #fff;
+  background-color: #4a90e2;
+  padding: 6px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, button:hover {
+  background-color: #357ab7;
+}
+
+/* ===== フラッシュメッセージ ===== */
+.notice {
+  background-color: #e7f9ed;
+  border: 1px solid #a5e0b5;
+  color: #2b7a3f;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.alert {
+  background-color: #fdeaea;
+  border: 1px solid #f5b2b2;
+  color: #b30000;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
